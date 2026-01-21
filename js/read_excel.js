@@ -1,3 +1,4 @@
+// Excelファイル読み込みサンプル
 const XLSX = require("xlsx");
 const path = require("path");
 
