@@ -1,3 +1,4 @@
+// 特定セルを読み取る
 const XLSX = require("xlsx");
 const path = require("path");
 
