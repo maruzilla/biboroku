@@ -1,3 +1,4 @@
+// 特定セルに書き込む
 const XLSX = require("xlsx");
 const path = require("path");
 
