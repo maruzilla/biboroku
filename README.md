@@ -1,4 +1,4 @@
-# biboroku
+# My 備忘録
 
 Express.js:  Node.jsと Expressで 基本的な Webアプリを作る方法
 
