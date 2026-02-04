@@ -1,0 +1,46 @@
+__--------
+//?? iPhoneで Bluetoothキーボードの入力を受信し、iOS版の GarageBandへ音階情報を出力する WebMIDIアプリを JavaScriptで書いてください。
+
+> "iPhoneで「仮想MIDIポート」や「Bluetooth MIDI」を有効化"について、もっと詳しく教えてください。
+> WebMIDIアプリから仮想MIDIポートを作成するコード例も紹介してください。
+> iPhoneで 仮想MIDIポートが作れるおすすめのアプリを教えてください。
+	- Audiobus → 最も定番で安定した仮想MIDIルーティングアプリ。 アプリ内課金
+	- AUM → プロ向けで柔軟なMIDIルーティングが可能。 ¥3,500
+> Audiobusと AUMの それぞれの機能、長所や短所など詳しく教えてください。
+	Audiobusは「アプリ間のオーディオ/MIDI接続ハブ」としてシンプルに複数アプリをつなぐのが得意、AUMは「高機能ミキサー兼ルーティング環境」として柔軟な構成や録音を可能にするのが強みです。Audiobusは初心者向けに直感的、AUMはプロ志向で自由度が高い反面やや複雑
+
+--
+//?? iPhoneで Bluetoothキーボードの入力を受信し、BLE MIDIで音階情報を送信する WebMIDIアプリを JavaScriptで書いてください。
+
+> BLE MIDI対応の音楽機器で認識され、ワイヤレスで送信できること。
+	ブラウザやマイコンでBLE‑MIDIの標準GATTサービス（UUID: 03B80E5A…）とI/Oキャラクタリスティック（UUID: 7772E5DB…）を実装し、MIDIパケット（タイムスタンプ付き）をNotify/WriteWithoutResponseで送れば、BLE‑MIDI対応機器にワイヤレスで認識・送信できます.
+
+--
+BLE MIDIで音階情報を送信する WebMIDIアプリを作りました。 PCのブラウザでは「BLE MIDI 接続」のボタンを押すとペアリングのダイアログが出るのですが、スマートフォンのブラウザでは何も出ません。 何が問題なのでしょうか。 原因を説明し、以下のソースを修正してください。
+
+--
+//?? ESP32で Bluetoothキーボードの入力を受信し、BLE MIDIで音階情報を出力するプログラムを書いてください。 
+
+++
+ピアノのように、例えば "Z"が押されたら"ド"、"X"が押されたら"レ"、CapsLock時でない時にキーが離されたら、その音階が止まるという仕様にしたい。
+++
+
+__
+//? Javascript WebMIDI BLE MIDI UUID 03b80e5a
+
+__--------
+* BLE_MIDI_Test_1.html - ble_midi_piano-gpt.html
+https://maruzilla.github.io/BLE_MIDI_Test_1/
+https://github.com/maruzilla/BLE_MIDI_Test_1/
+
+
+__--------
+//? javascript スマホ 傾きセンサー "devicemotion" "deviceorientation" 違い
+	javascript で、スマホの傾きを表示するアプリ
+
+--
+* 傾きで図形を動かす
+https://maruzilla.github.io/tilt_test/
+https://github.com/maruzilla/tilt_test
+tilt_test.html
+//?? スマートフォンの傾きによって図形を動かす JavaScriptプログラムを作ったのですが、傾けても図形が動きません。 何が原因でしょうか？ ソースコードを直してください。
