@@ -1,6 +1,175 @@
+--
+//? Github 公開 Configuration Choose visibility Public Private
+->
+//**** Githubのリポジトリをpublicからprivateに変更する方法
+Danger Zoneの一番上にChange repository visibility This repository is currently public.
+-> Change visibiity
+
+//? github 非公開 自分だけ
+新規作成時： リポジトリ作成画面で [Private] を選択します。
+既存リポジトリの変更： リポジトリの [Settings] タブを開き、一番下の「Danger Zone」にある [Change visibility] から「Make private」を選択します。
+
+--
+//**** Zenn: Node.jsによるWebアプリケーション作成入門
+
+--
+//? http port 8080 3000
+-> //***** ポートの基礎知識とよく使われるポート番号のまとめ
+
+--
+//? node.js で単体アプリ開発
+GitHubが開発した、Web技術（HTML、CSS、JavaScript）を使用してデスクトップアプリケーションを構築するためのオープンソースのフレームワーク
+多くの有名なアプリケーションがElectronで構築されています。 
+	Visual Studio Code (コードエディタ)
+	Slack (チャットツール)
+	Discord (コミュニケーションツール)
+	Notion (メモ・ドキュメント管理)
+	ref // VSCode の中身は Electron + Monaco だった
+
+--
+//? node.js Electron
+//****** Github: Electron 入門
+https://gist.github.com/umamichi/ff5b812caf1466c2c2e5768b7837a1e7
+//***** qiita: Electronの環境構築とVisual Studio Codeでデバッグする方法
+--
+//?? VSCode node.js electron GUI 開発 拡張機能
+npm init は Node.js プロジェクトの初期化 を行い、依存関係やメタ情報を管理する package.json ファイルを生成するコマンド
+
+--
+//***** qiita: JavaScriptのstaticを理解する
+--
+//? javascript 非同期処理 await async Promise.all()
+--
+//? javascript != !== 違い
+型変換（型の自動変換）を行うかどうか
+	1. !=（ゆるい不等価, loose inequality）
+	2. !==（厳密不等価, strict inequality）
+予期しない型変換によるバグを避けるため、!==（および ===）を使うのが推奨
+
+----
+//? javascript 正規表現 Regexp
+//**** 正規表現(RegExp) - とほほ
+--
+//?? Javascriptの正規表現 Regexpについて詳しく教えてください。 具体例も書くこと。
+
+--
+//? javascript ” ’ 違い
+機能的な違いはほぼありません
+`（バッククォート）	ES6（ECMAScript 2015）以降で追加
+テンプレートリテラル	変数埋め込み、複数行、式展開が可能
+
+--
+//? JavaScript 画像から顔検出
+-> clmtrackr,  ml5.js  face-api.js
+
+//?? JavaScriptで画像から人の顔の位置を検出するもっとも簡単な方法
+-> ml5.js の FaceAPIを使う方法が最も手軽です
+	結論：最も簡単なのは ml5.js（FaceAPI）
+	ml5.js は TensorFlow.js をラップした初心者向けライブラリで、
+	数行のコードで顔検出が動くのが最大のメリットです。
+->//?? Canvas に検出結果を描画するコード, 複数人の顔検出
+->//?? スマホでも動作し、カメラフォルダから画像を選べるようにしたい
+->//?? 検出した顔の部分をアフィン変換で変形出来るようにしたい
+->//?? HTML全体も書いて
+->//?? 画像読み込み後に画像をタップしたら、顔検出と変形をするように作り直して
+
+-- upd
+//? JavaScript フラッシュ LED 点滅 シャッター
+
+__
+//? ComSpec
+	->
+// VBAでコマンドプロンプトを使う方法
+'実行したいコマンド
+cmd = "dir c:vba /B"
+
+'コマンドを実行
+Set result = wsh.exec("%ComSpec% /c " & cmd)
+
+--
+//? VB Left Right Mid
+-> 
+//******* VB.NETVB の Left, Mid, Right のように文字列を取り出す
+http://jeanne.wankuma.com/tips/vb.net/string/left.html
+Substring 
+    Public Shared Overloads Function Mid(ByVal stTarget As String, ByVal iStart As Integer, ByVal iLength As Integer) As String
+
+--
+//***** プロシージャのオーバーロード
+同じ名前を持つプロシージャを複数定義し、異なるパラメーター リストを持つことで、オーバーロードを実現。
+
+--
+//***** Sharedメソッド
+https://www.bing.com/copilotsearch?q=Shared%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%81%ae%e5%88%a9%e7%82%b9%e3%81%a8%e3%81%af%ef%bc%9f&form=CSSANS
+Sharedメソッド（C#ではstaticキーワードに相当）
+クラスのインスタンスを作成せずに呼び出すことができるメソッド。 これによりいくつかの利点があります。
+	1. インスタンス化不要で利用可能
+	2. メモリ効率が良い
+	3. ユーティリティ関数や共通処理に最適
+	4. グローバルアクセスが容易
+	5. 状態管理には注意が必要
+
+--
+//? Excel addin VBA 作り方 リボン
+Custom UI Editorをインストール（無料）
+
+__--------
+//? qtクロスプラットフォーム開発
+
+--
+//? .NET MAUI
+C# と XAML を使用してネイティブモバイルおよびデスクトップ アプリを作成するためのクロスプラットフォーム フレームワーク.
+Xamarin.Forms の進化. 1 つの共有コード ベースから Android、iOS、macOS、Windows で実行できるアプリを開発できます.
+
+--
+//?? 生成AIで 3D人体モデル
+
+--
+//? Gemini 3 Disco GenTabs
+//******* Google、実験的なAIブラウザ「Disco」発表、タブの乱立を“専用アプリ化”で解消へ
+//******* Google「Disco」とは？ウェブページから自動でアプリを生成する革新的ブラウザの全貌
+//? Vibe coding
+//?? 長所 短所 GPL MIT BSD Mozilla ライセンス 
+ -> コピーレフト 非商用目的（Non-commercially） 継承 (クリエイティブ・コモンズ)
+//?? Openaiのサーバーはどこにある?
+ -> 公式な発表なし, Azure? Softbank?
+//? 効率化 コスト改善 人手不足 人件費高騰 生産性 物価
+//? mac beep wild eep sosumi 
+//******* プログラミングみたいに音楽を作れる「Strudel」
+
+__--------
+//? VPN
+--
+//NTT https://www.nttpc.co.jp/column/network/whats_vpn.html
+VPNの種類と特徴
+インターネットVPN, エントリーVPN, IP-VPN, 広域イーサネット
+
+__----
+//?****** ブラウザで音楽が作れる - すぐに使えるMIDI編集フリーソフト
+https://signalmidi.app/
+
+__----
+//? ESP32 tb303
+-> AcidBox
+https://github.com/copych/AcidBox
+
+-----
+//***** JC-303 Plugin 
+https://github.com/midilab/jc303
+Free Roland TB-303 clone plugin, Supports Windows, Linux and MacOS. You may find CLAP, VST3, LV2 and AU
+//**** midilab「JC303」無償配布！Roland TB-303モデルベースシンセサイザープラグイン
+
+__--------
+//? 物理エンジン PhysX Unity 比較
+PhysX: NVIDIAが開発・提供している、リアルタイムの物理演算エンジン
+
+//? Unity 音響 3D
+
+
 __--------
 //?? iPhoneで Bluetoothキーボードの入力を受信し、iOS版の GarageBandへ音階情報を出力する WebMIDIアプリを JavaScriptで書いてください。
 
+__------
 > "iPhoneで「仮想MIDIポート」や「Bluetooth MIDI」を有効化"について、もっと詳しく教えてください。
 > WebMIDIアプリから仮想MIDIポートを作成するコード例も紹介してください。
 > iPhoneで 仮想MIDIポートが作れるおすすめのアプリを教えてください。
