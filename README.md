@@ -8,11 +8,11 @@ Express.js :  Node.jsと Expressで 基本的な Webアプリを作る方法
 
 PWA :  PWA アプリ ファイル構成
 
-Regexp.js :  Javascriptの正規表現 Regexpについて
+RegExp.js :  JavaScriptの正規表現 Regexpについて
 
-Sheet.JS :  JavaScriptでExcelの操作 / SheetJSを node.jsで動かすには?
+Sheet.JS :  JavaScriptで Excelの操作 / SheetJSを node.jsで動かすには?
 
-Tikka-Masala :  チキンティッカマサラを美味しく作るには?
+Tikka-Masala.txt :  チキンティッカマサラを美味しく作るには?
 
 WebMIDI Switcher :   (スマートフォンをMIDI Hostとして機能)について
 
