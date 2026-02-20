@@ -12,6 +12,8 @@ Regexp.js :  Javascriptの正規表現 Regexpについて
 
 Sheet.JS :  JavaScriptでExcelの操作 / SheetJSを node.jsで動かすには?
 
+Tikka-Masala :  チキンティッカマサラを美味しく作るには?
+
 WebMIDI Switcher :   (スマートフォンをMIDI Hostとして機能)について
 
 js/ :  JavaScript サンプルソース
