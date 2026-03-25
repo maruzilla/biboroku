@@ -397,3 +397,178 @@ const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity,
 これで 「データの加工（map）」「絞り込み（filter）」「集計（reduce）」 というモダンJSの三種の神器をマスターしましたね。
 
 次は、これらを組み合わせて「在庫（stock）が 0 の商品を除外してから、合計金額を出す」といった、より実践的なメソッドチェーンに挑戦してみますか？
+
+----
+//?? 三項演算子（条件 ? 真 : 偽）を使って 1 行で書く
+
+--
+在庫（stock）が 0 の商品を除外してから、合計金額を一気に算出するコードです。
+
+// 在庫（stock）を追加したデータ
+const cart = [
+  { id: 1, price: 5000, qty: 1, stock: 10 },
+  { id: 2, price: 3000, qty: 1, stock: 0 }, // 在庫なし
+  { id: 3, price: 20000, qty: 1, stock: 5 }
+];
+
+// メソッドチェーンで「絞り込み」→「集計」
+const total = cart
+  .filter(item => item.stock > 0) // 在庫ありに絞り込む
+  .reduce((sum, item) => sum + item.price * item.qty, 0); // 合計を出す
+
+console.log(total); // 25000 (ID:2が除外された結果)
+
+# ここで「三項演算子」を使う応用技
+もし filter を使わずに、「在庫が 0 のものは 0 円として加算する」 という処理を reduce 内の三項演算子で書くならこうなります。
+
+const total = cart.reduce((sum, item) => 
+  item.stock > 0 ? sum + (item.price * item.qty) : sum
+, 0);
+
+解説
+item.stock > 0 ?: 在庫があるか？
+真（ある）: sum + (単価 * 個数) を次のループへ渡す。
+偽（ない）: sum（今の合計値）をそのまま次のループへ渡す。
+これで「特定の条件だけ計算に含める」という高度な操作も 1 行で完結します！
+次は、これらのデータを画面に表示する際に必須となる 「分割代入」と「テンプレートリテラル」の組み合わせ を試してみますか？
+
+
+--
+「分割代入」と「テンプレートリテラル」の組み合わせ
+
+オブジェクトから「必要な値だけをサッと取り出し」、それを「読みやすい文字列の中に組み込む」という、モダンJSで最もよく使う組み合わせです。
+例えば、関数の引数の中で分割代入を行うと、コードが劇的にスッキリします。
+
+基本の組み合わせ
+const user = { id: 1, name: "Ken", age: 25 };
+
+// 1. 分割代入で取り出す
+const { name, age } = user;
+
+// 2. テンプレートリテラルで表示
+console.log(`${name}さんは${age}歳です。`); 
+// 結果: Kenさんは25歳です。
+
+実務で一番使う形（関数の引数）
+Reactなどのコンポーネント開発で標準的に使われる、「引数を受け取った瞬間にバラす」テクニックです。
+
+const displayProfile = ({ name, age }) => {
+  // 関数の ( ) の中で { name, age } と書くだけで、
+  // 内部では user.name と書かずに name だけで使えます。
+  return `【ユーザー情報】名：${name} / 齢：${age}`;
+};
+
+console.log(displayProfile(user));
+
+さらに応用：ネストされたデータの分割代入
+前述の「投稿データ」のような深い階層も、1行で取り出せます。
+
+const user = {
+  name: "Ken",
+  sns: {
+    twitter: "@ken_js",
+    github: "ken-dev"
+  }
+};
+
+// 深い階層もドットを使わず一気に取得
+const { name, sns: { twitter } } = user;
+
+console.log(`${name}のTwitterは${twitter}です。`);
+// 結果: KenのTwitterは@ken_jsです。
+
+# ポイント
+* 分割代入を使うことで、user.name や user.sns.twitter と何度も書く手間（とタイポの危険）が減ります。
+
+* テンプレートリテラル内 ${ } は、変数だけでなく age >= 20 ? "大人" : "子供" のような三項演算子を直接書くことも可能です。
+
+次は、これらをループ（map）の中で使い、「HTMLのリスト要素（<li>など）を一気に生成する」シミュレーションをしてみますか？
+
+
+--
+配列のデータ（users）を、「分割代入」でスマートに取り出し、「テンプレートリテラル」でHTML文字列に変換する、実務で最も使われるパターンです。
+
+Reactなどのフレームワークを使わなくても、これだけで動的な画面表示の基礎が作れます。
+
+実践例：ユーザーリストのHTML生成
+
+const users = [
+  { id: 1, name: "Ken", role: "Admin" },
+  { id: 2, name: "Yuki", role: "User" },
+  { id: 3, name: "Saki", role: "Guest" }
+];
+
+// mapの中で「分割代入」を使い、テンプレートリテラルで返す
+const htmlList = users.map(({ name, role }) => {
+  return `<li class="user-item">
+    <strong>${name}</strong> <span>(${role === "Admin" ? "管理者" : "一般"})</span>
+  </li>`;
+});
+
+// 最後に join("") で配列を一つの文字列に繋げる
+const finalHtml = `<ul>${htmlList.join("")}</ul>`;
+
+console.log(finalHtml);
+
+#  ここがモダン！
+* 引数で分割代入: map(user => ...) とせず map(({ name, role }) => ...) と書くことで、関数内で user.name と書く手間を省いています。
+
+* ${ } 内の三項演算子: 文字列の中で直接「もしAdminなら管理者、そうでなければ一般」という条件分岐を埋め込んでいます。
+
+* マルチライン: テンプレートリテラルは改行をそのまま保持できるので、HTMLの構造が視覚的にわかりやすくなります。
+
+これで、データの加工から表示用の文字列作成までを一気通貫でマスターしましたね！
+
+ES6の主要な武器（const/let, Arrow Functions, Spread, Destructuring, Map/Filter/Reduce, Template Literals）はほぼ網羅しました。
+
+最後に、これらを一つのファイルにまとめる際に欠かせない 「モジュール（export / import）」 の使い方を確認して仕上げにしますか？
+
+
+--
+ファイルの分割と再利用を可能にする 「モジュール (ES Modules)」 は、モダン開発の必須知識です。
+
+「作る（出す）」側の export と、「使う（入れる）」側の import のセットで覚えます。
+
+1. 名前付きエクスポート (Named Export)
+1つのファイルから複数の関数や変数を出したい時に使います。
+
+// math.js (書き出し側)
+export const add = (a, b) => a + b;
+export const multiply = (a, b) => a * b;
+export const TAX_RATE = 0.1;
+
+// main.js (読み込み側)
+// 波括弧 { } を使って、必要なものだけ選んでインポート
+import { add, TAX_RATE } from './math.js';
+
+console.log(add(100, 200)); // 300
+console.log(TAX_RATE);      // 0.1
+
+2. デフォルトエクスポート (Default Export)
+そのファイルのメイン機能を1つだけ出す時に使います。
+
+// User.js (書き出し側)
+const User = { name: "Ken", age: 25 };
+export default User; // defaultは1つのファイルに1つだけ
+
+// main.js (読み込み側)
+// 波括弧なしでインポート。名前も自由に変えられます。
+import MyUser from './User.js';
+
+console.log(MyUser.name); // Ken
+
+#  現場での使い分け
+* 名前付き: ユーティリティ関数（計算用、フォーマット用など）をたくさん詰め込むとき。
+
+* デフォルト: 1つのファイルに1つのクラスや、1つのReactコンポーネントを定義するとき。
+
+これで ES6（モダンJavaScript）の主要な機能はコンプリート です！
+	変数: const / let
+	関数: アロー関数
+	文字列: テンプレートリテラル
+	データ操作: 分割代入、スプレッド構文
+	配列メソッド: map / filter / reduce
+	非同期: async / await
+	管理: import / export
+
+これらを組み合わせれば、現代的なライブラリ（React, Vue, TypeScriptなど）のコードがスラスラ読めるようになります。
