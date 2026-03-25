@@ -1,8 +1,10 @@
 # My 備忘録
 
-Electron :  Node.js Electron VSCode Exeファイル化
+ECMAScript : JavaScriptのモダンなプログラミング記法、ES6 ECMAScriptを完全マスターしたい!!
 
 ESP32-AI-Robot.txt :  ESP32で音声認識と音声合成で会話できるスマートスピーカーは作れる?
+
+Electron :  Node.js Electron VSCode Exeファイル化
 
 Express.js :  Node.jsと Expressで 基本的な Webアプリを作る方法
 
